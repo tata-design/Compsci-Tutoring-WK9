@@ -213,9 +213,6 @@ def collect_valid(readings):
             valid_readings.append(reading)   # ← update: add to the list
     return valid_readings
 
-    # TODO: write this function
-
-
 # --- Test your functions ---
 
 print("Testing with SENSOR_LOG_A (has errors):")
