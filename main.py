@@ -337,30 +337,20 @@ print("-" * 55)
 print()
 
 def search_grid(grid):
-    """
-    Search a 2D grid for an object (cell value = 1).
-
-    Parameters:
-        grid (list of lists): 2D grid of 0s and 1s
-
-    Returns:
-        tuple: (found_row, found_col, cells_checked)
-               found_row and found_col are None if not found
-    """
-    found_row    = None
-    found_col    = None
+    found_row = None
+    found_col = None
     cells_checked = 0
-    # TODO: initialize your flag variable here
-
-    # TODO: write the nested loop
-    # Outer loop: iterate over rows using enumerate()
-    # Inner loop: iterate over columns using enumerate()
-    # Inside inner loop:
-    #   - increment cells_checked
-    #   - check if cell == 1
-    #   - if found: set found_row, found_col, flag, and break
-    # After inner loop: check flag and break outer if needed
-
+    found = False
+    for row_i, row in enumerate(grid):
+        for col_i, cell in enumerate(row):
+            cells_checked += 1
+            if cell == 1:
+                found_row = row_i
+                found_col = col_i
+                found = True
+                break
+        if found:
+            break
     return found_row, found_col, cells_checked
 
 
@@ -529,7 +519,7 @@ Q1: What is the accumulator pattern?
 Describe it in your own words — what do you do before the loop,
 inside the loop, and after the loop? Give one real example.
 
-YOUR ANSWER:
+YOUR ANSWER: ( You have to update it after each iteration). A pattern that has a set of condtions to be checked my each valeu in a list over time. The values "accumalte" meaning we go farther down the list passing through each value to check it for contions to we find the deired condition.
 
 """
 
@@ -537,7 +527,7 @@ Q2 = """
 Q2: What is the difference between 'break' and 'continue'?
 Give one example of when you'd use each one in a program.
 
-YOUR ANSWER:
+YOUR ANSWER: Break is used to exit a loop right after a condtion, while a continue mean to skip over a certain iterations right after a condition. For exampl in my code, i used a break in the find_zone_by_color function. I used continue
 
 """
 
@@ -555,7 +545,7 @@ Q4: In the grid search (TODO 3), what is the WORST CASE number of
 cells your loop checks? What is the BEST CASE? Explain why the
 difference matters when the grid is very large.
 
-YOUR ANSWER:
+YOUR ANSWER: The worst case is 25 cells, and the best case is 1 cell. The difference matters because if the grid is very large, it could take a long time to check every cell in the worst case, while in the best case, it would only take a short time to find the object. This is important for efficiency of certain codes or projects.
 
 """
 
