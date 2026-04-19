@@ -213,18 +213,6 @@ def collect_valid(readings):
             valid_readings.append(reading)   # ← update: add to the list
     return valid_readings
 
-print(f"Clean readings: {valid_readings}")
-print(f"(Removed {len(readings) - len(valid_readings)} error values)")
-print()
-    """
-    Build and return a list of valid (non-error) readings.
-
-    Parameters:
-        readings (list): list of floats; -1 = error
-
-    Returns:
-        list: new list with only valid readings
-    """
     # TODO: write this function
 
 
