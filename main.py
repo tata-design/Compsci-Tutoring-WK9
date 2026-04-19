@@ -263,6 +263,12 @@ print()
 # ----------------------------------------------------------
 
 def build_active_zone_names(zones):
+    active_names = []         # ← initialize to empty list
+    for zone in zones:
+       if zone["active"] == True:  # check if zone is active
+            active_names.append(zone["name"])  # ← update: add the name to the list
+    return active_names
+
     """
     Return a list of names of all active zones.
 
@@ -286,19 +292,14 @@ def build_active_zone_names(zones):
 # ----------------------------------------------------------
 
 def find_zone_by_color(zones, target_color):
-    """
-    Find the name of the first zone matching the target color.
-
-    Parameters:
-        zones (list of dicts): the zone data
-        target_color (str): color to search for
-
-    Returns:
-        str: name of first matching zone, or None if not found
-    """
-    # TODO: write this function
-    # Remember: use break once you find the match!
-
+    found_zone = None           # ← we haven't found anything yet
+    for zone in zones:
+        if zone["color"] == target_color:
+            found_zone = zone["name"]
+            # Problem: the loop KEEPS GOING even after we find it!
+            # We'll fix this in Part 3 with break.
+            break   # ← this will exit the loop immediately after finding the match
+    return found_zone
 
 # --- Test ---
 
